@@ -1,353 +1,361 @@
 *[English](README.md) ∙ [日本語](README-ja.md) ∙ [简体中文](README-zh-Hans.md) ∙ [繁體中文](README-zh-TW.md) | [العَرَبِيَّة‎](https://github.com/donnemartin/system-design-primer/issues/170) ∙ [বাংলা](https://github.com/donnemartin/system-design-primer/issues/220) ∙ [Português do Brasil](https://github.com/donnemartin/system-design-primer/issues/40) ∙ [Deutsch](https://github.com/donnemartin/system-design-primer/issues/186) ∙ [ελληνικά](https://github.com/donnemartin/system-design-primer/issues/130) ∙ [עברית](https://github.com/donnemartin/system-design-primer/issues/272) ∙ [Italiano](https://github.com/donnemartin/system-design-primer/issues/104) ∙ [韓國語](https://github.com/donnemartin/system-design-primer/issues/102) ∙ [فارسی](https://github.com/donnemartin/system-design-primer/issues/110) ∙ [Polski](https://github.com/donnemartin/system-design-primer/issues/68) ∙ [русский язык](https://github.com/donnemartin/system-design-primer/issues/87) ∙ [Español](https://github.com/donnemartin/system-design-primer/issues/136) ∙ [ภาษาไทย](https://github.com/donnemartin/system-design-primer/issues/187) ∙ [Türkçe](https://github.com/donnemartin/system-design-primer/issues/39) ∙ [Tiếng Việt](README-vi-VN.md) ∙ [Français](https://github.com/donnemartin/system-design-primer/issues/250) | [Add Translation](https://github.com/donnemartin/system-design-primer/issues/28)*
 
-# The System Design Primer
+# Nhập môn thiết kế hệ thống
 
 <p align="center">
   <img src="http://i.imgur.com/jj3A5N8.png"/>
   <br/>
 </p>
 
-## Motivation
+## Động lực
 
-> Learn how to design large-scale systems.
+> Học cách để thiết kế những hệ thống quy mô lớn.
 >
-> Prep for the system design interview.
+> Chuẩn bị cho phỏng vấn về thiết kế hệ thống.
 
-### Learn how to design large-scale systems
+### Học cách để thiết kế những hệ thống quy mô lớn
 
-Learning how to design scalable systems will help you become a better engineer.
+Học cách thiết kế các hệ thống quy mô lớn sẽ giúp bạn trở thành một kỹ sư tốt hơn.
 
-System design is a broad topic.  There is a **vast amount of resources scattered throughout the web** on system design principles.
+Thiết kế hệ thống là một chủ đề rộng lớn. Có một **lượng lớn tài nguyên nằm rải rác trên web** về những nguyên tắc thiết kế hệ thống
 
-This repo is an **organized collection** of resources to help you learn how to build systems at scale.
+Repo này là một **bộ sưu tập tài liệu có tổ chức** để giúp bạn học cách xây dựng hệ thống với quy mô lớn.
 
-### Learn from the open source community
+### Học từ cộng đồng mã nguồn mở
 
-This is a continually updated, open source project.
+Đây là một dự án mã nguồn mở và được cập nhật liên tục.
 
-[Contributions](#contributing) are welcome!
+[Đóng góp](#%c4%90%c3%b3ng-g%c3%b3p) luôn được hoan nghênh!
 
-### Prep for the system design interview
+### Chuẩn bị cho phỏng vấn thiết kế hệ thống
 
-In addition to coding interviews, system design is a **required component** of the **technical interview process** at many tech companies.
+Ngoài phỏng vấn lập trình, thiết kế hệ thống là một **thành phần bắt buộc** của **quy trình phỏng vấn** tại nhiều công ty công nghệ.
 
-**Practice common system design interview questions** and **compare** your results with **sample solutions**: discussions, code, and diagrams.
+**Luyện tập những câu hỏi phỏng vấn phổ biến** và **so sánh** kết quả của bạn với **đáp án mẫu**: thảo luận, lập trình, và sơ đồ thiết kế.
 
-Additional topics for interview prep:
+Những chủ đề khác chuẩn bị cho việc phỏng vấn:
 
-* [Study guide](#study-guide)
-* [How to approach a system design interview question](#how-to-approach-a-system-design-interview-question)
-* [System design interview questions, **with solutions**](#system-design-interview-questions-with-solutions)
-* [Object-oriented design interview questions, **with solutions**](#object-oriented-design-interview-questions-with-solutions)
-* [Additional system design interview questions](#additional-system-design-interview-questions)
+* [Hướng dẫn học tập](#h%c6%b0%e1%bb%9bng-d%e1%ba%abn-h%e1%bb%8dc-t%e1%ba%adp)
+* [Tiếp cận câu hỏi phỏng vấn thiết kế hệ thống như thế nào](#ti%e1%ba%bfp-c%e1%ba%adn-c%c3%a2u-h%e1%bb%8fi-ph%e1%bb%8fng-v%e1%ba%a5n-thi%e1%ba%bft-k%e1%ba%bf-h%e1%bb%87-th%e1%bb%91ng-nh%c6%b0-th%e1%ba%bf-n%c3%a0o)
+* [Câu hỏi phỏng vấn thiết kế hệ thống với đáp án](#c%c3%a2u-h%e1%bb%8fi-ph%e1%bb%8fng-v%e1%ba%a5n-thi%e1%ba%bft-k%e1%ba%bf-h%e1%bb%87-th%e1%bb%91ng-v%e1%bb%9bi-%c4%91%c3%a1p-%c3%a1n)
+* [Câu hỏi phỏng vấn thiết kế đối tượng với đáp án](#c%c3%a2u-h%e1%bb%8fi-ph%e1%bb%8fng-v%e1%ba%a5n-thi%e1%ba%bft-k%e1%ba%bf-%c4%91%e1%bb%91i-t%c6%b0%e1%bb%a3ng-v%e1%bb%9bi-%c4%91%c3%a1p-%c3%a1n)
+* [Câu hỏi bổ sung về phỏng vấn thiết kế hệ thống](#additional-system-design-interview-questions)
 
-## Anki flashcards
+## Thẻ Anki
 
 <p align="center">
   <img src="http://i.imgur.com/zdCAkB3.png"/>
   <br/>
 </p>
 
-The provided [Anki flashcard decks](https://apps.ankiweb.net/) use spaced repetition to help you retain key system design concepts.
+[Thẻ Anki](https://apps.ankiweb.net/) sử dụng sự lặp lại có chu kỳ để giúp bạn lưu nhớ các khái niệm thiết kế hệ thống chính.
 
-* [System design deck](https://github.com/donnemartin/system-design-primer/tree/master/resources/flash_cards/System%20Design.apkg)
-* [System design exercises deck](https://github.com/donnemartin/system-design-primer/tree/master/resources/flash_cards/System%20Design%20Exercises.apkg)
-* [Object oriented design exercises deck](https://github.com/donnemartin/system-design-primer/tree/master/resources/flash_cards/OO%20Design.apkg)
+* [Thẻ thiết kế hệ thống](https://github.com/donnemartin/system-design-primer/tree/master/resources/flash_cards/System%20Design.apkg)
+* [Thẻ luyện tập thiết kế hệ thống](https://github.com/donnemartin/system-design-primer/tree/master/resources/flash_cards/System%20Design%20Exercises.apkg)
+* [Thẻ luyện tập thiết kế hướng đối tượng](https://github.com/donnemartin/system-design-primer/tree/master/resources/flash_cards/OO%20Design.apkg)
 
-Great for use while on-the-go.
+Tuyệt vời cho sử dụng trong khi di chuyển.
 
-### Coding Resource: Interactive Coding Challenges
+### Tài liệu luyện tập lập trình
 
-Looking for resources to help you prep for the [**Coding Interview**](https://github.com/donnemartin/interactive-coding-challenges)?
+Tìm kiếm tài liệu để giúp bạn chuẩn bị cho [**phỏng vấn lập trình**](https://github.com/donnemartin/interactive-coding-challenges)?
 
 <p align="center">
   <img src="http://i.imgur.com/b4YtAEN.png"/>
   <br/>
 </p>
 
-Check out the sister repo [**Interactive Coding Challenges**](https://github.com/donnemartin/interactive-coding-challenges), which contains an additional Anki deck:
+Kiểm tra repo [**Interactive Coding Challenges**](https://github.com/donnemartin/interactive-coding-challenges), chứa các thẻ Anki bổ sung:
 
-* [Coding deck](https://github.com/donnemartin/interactive-coding-challenges/tree/master/anki_cards/Coding.apkg)
+* [Thẻ lập trình](https://github.com/donnemartin/interactive-coding-challenges/tree/master/anki_cards/Coding.apkg)
 
-## Contributing
+## Đóng góp
 
-> Learn from the community.
+> Học tập từ cộng đồng.
 
-Feel free to submit pull requests to help:
+Thoải mái gửi yêu cầu đóng góp của bạn về:
 
-* Fix errors
-* Improve sections
-* Add new sections
-* [Translate](https://github.com/donnemartin/system-design-primer/issues/28)
+* Sửa lỗi
+* Cải thiện các mục
+* Thêm các mục mới
+* [Dịch tài liệu](https://github.com/donnemartin/system-design-primer/issues/28)
 
 Content that needs some polishing is placed [under development](#under-development).
 
-Review the [Contributing Guidelines](CONTRIBUTING.md).
+Xem lại [Hướng dẫn đóng góp](CONTRIBUTING.md).
 
-## Index of system design topics
+## Danh mục các chủ đề về thiết kế hệ thống
 
-> Summaries of various system design topics, including pros and cons.  **Everything is a trade-off**.
+> Tóm tắt các chủ đề thiết kế hệ thống khác nhau, bao gồm ưu và nhược điểm.  **Mọi thứ đều là sự đánh đổi**.
 >
-> Each section contains links to more in-depth resources.
+> Mỗi mục chứa các liên kết tới những tài nguyên chuyên sâu hơn.
 
 <p align="center">
   <img src="http://i.imgur.com/jrUBAF7.png"/>
   <br/>
 </p>
 
-* [System design topics: start here](#system-design-topics-start-here)
-    * [Step 1: Review the scalability video lecture](#step-1-review-the-scalability-video-lecture)
-    * [Step 2: Review the scalability article](#step-2-review-the-scalability-article)
-    * [Next steps](#next-steps)
-* [Performance vs scalability](#performance-vs-scalability)
-* [Latency vs throughput](#latency-vs-throughput)
-* [Availability vs consistency](#availability-vs-consistency)
-    * [CAP theorem](#cap-theorem)
-        * [CP - consistency and partition tolerance](#cp---consistency-and-partition-tolerance)
-        * [AP - availability and partition tolerance](#ap---availability-and-partition-tolerance)
-* [Consistency patterns](#consistency-patterns)
-    * [Weak consistency](#weak-consistency)
-    * [Eventual consistency](#eventual-consistency)
-    * [Strong consistency](#strong-consistency)
+* [Chủ đề thiết kế hệ thống: bắt đầu từ đây](#ch%e1%bb%a7-%c4%91%e1%bb%81-thi%e1%ba%bft-k%e1%ba%bf-h%e1%bb%87-th%e1%bb%91ng-b%e1%ba%aft-%c4%91%e1%ba%a7u-t%e1%bb%ab-%c4%91%c3%a2y)
+  * [Bước 1: Xem lại bài giảng video về khả năng mở rộng hệ thống](#b%c6%b0%e1%bb%9bc-1-xem-l%e1%ba%a1i-b%c3%a0i-gi%e1%ba%a3ng-video-v%e1%bb%81-kh%e1%ba%a3-n%c4%83ng-m%e1%bb%9f-r%e1%bb%99ng-h%e1%bb%87-th%e1%bb%91ng)
+  * [Bước 2: Xem lại bài viết về khả năng mở rộng hệ thống](#b%c6%b0%e1%bb%9bc-2-xem-l%e1%ba%a1i-b%c3%a0i-vi%e1%ba%bft-v%e1%bb%81-kh%e1%ba%a3-n%c4%83ng-m%e1%bb%9f-r%e1%bb%99ng-h%e1%bb%87-th%e1%bb%91ng)
+  * [Những bước tiếp theo](#nh%e1%bb%afng-b%c6%b0%e1%bb%9bc-ti%e1%ba%bfp-theo)
+* [Hiệu suất so với khả năng mở rộng](#hi%e1%bb%87u-su%e1%ba%a5t-so-v%e1%bb%9bi-kh%e1%ba%a3-n%c4%83ng-m%e1%bb%9f-r%e1%bb%99ng)
+  * [Nguồn và đọc thêm](#ngu%e1%bb%93n-v%c3%a0-%c4%91%e1%bb%8dc-th%c3%aam)
+* [Độ trễ so với công suất](#%c4%90%e1%bb%99-tr%e1%bb%85-so-v%e1%bb%9bi-c%c3%b4ng-su%e1%ba%a5t)
+  * [Nguồn và đọc thêm](#ngu%e1%bb%93n-v%c3%a0-%c4%91%e1%bb%8dc-th%c3%aam-1)
+* [Tính sẵn sàng và tính nhất quán](#t%c3%adnh-s%e1%ba%b5n-s%c3%a0ng-v%c3%a0-t%c3%adnh-nh%e1%ba%a5t-qu%c3%a1n)
+  * [Định lý CAP](#%c4%90%e1%bb%8bnh-l%c3%bd-cap)
+  * [Nguồn và đọc thêm](#ngu%e1%bb%93n-v%c3%a0-%c4%91%e1%bb%8dc-th%c3%aam-2)
+* [Các mô hình về tính nhất quán](#c%c3%a1c-m%c3%b4-h%c3%acnh-v%e1%bb%81-t%c3%adnh-nh%e1%ba%a5t-qu%c3%a1n)
+  * [Tính nhất quán yếu](#t%c3%adnh-nh%e1%ba%a5t-qu%c3%a1n-y%e1%ba%bfu)
+  * [Tính nhất quán cuối cùng](#t%c3%adnh-nh%e1%ba%a5t-qu%c3%a1n-cu%e1%bb%91i-c%c3%b9ng)
+  * [Tính nhất quán mạnh](#t%c3%adnh-nh%e1%ba%a5t-qu%c3%a1n-m%e1%ba%a1nh)
+  * [Nguồn và đọc thêm](#ngu%e1%bb%93n-v%c3%a0-%c4%91%e1%bb%8dc-th%c3%aam-3)
 * [Availability patterns](#availability-patterns)
-    * [Fail-over](#fail-over)
-    * [Replication](#replication)
-    * [Availability in numbers](#availability-in-numbers)
+  * [Fail-over](#fail-over)
+  * [Disadvantage(s): failover](#disadvantages-failover)
+  * [Replication](#replication)
+  * [Availability in numbers](#availability-in-numbers)
 * [Domain name system](#domain-name-system)
+  * [Disadvantage(s): DNS](#disadvantages-dns)
 * [Content delivery network](#content-delivery-network)
-    * [Push CDNs](#push-cdns)
-    * [Pull CDNs](#pull-cdns)
+  * [Push CDNs](#push-cdns)
+  * [Pull CDNs](#pull-cdns)
+  * [Disadvantage(s): CDN](#disadvantages-cdn)
 * [Load balancer](#load-balancer)
-    * [Active-passive](#active-passive)
-    * [Active-active](#active-active)
-    * [Layer 4 load balancing](#layer-4-load-balancing)
-    * [Layer 7 load balancing](#layer-7-load-balancing)
-    * [Horizontal scaling](#horizontal-scaling)
+  * [Active-passive](#active-passive)
+  * [Active-active](#active-active)
+  * [Layer 4 load balancing](#layer-4-load-balancing)
+  * [Layer 7 load balancing](#layer-7-load-balancing)
+  * [Horizontal scaling](#horizontal-scaling)
+  * [Disadvantage(s): load balancer](#disadvantages-load-balancer)
 * [Reverse proxy (web server)](#reverse-proxy-web-server)
-    * [Load balancer vs reverse proxy](#load-balancer-vs-reverse-proxy)
+  * [Load balancer vs reverse proxy](#load-balancer-vs-reverse-proxy)
+  * [Disadvantage(s): reverse proxy](#disadvantages-reverse-proxy)
 * [Application layer](#application-layer)
-    * [Microservices](#microservices)
-    * [Service discovery](#service-discovery)
+  * [Microservices](#microservices)
+  * [Service Discovery](#service-discovery)
+  * [Disadvantage(s): application layer](#disadvantages-application-layer)
 * [Database](#database)
-    * [Relational database management system (RDBMS)](#relational-database-management-system-rdbms)
-        * [Master-slave replication](#master-slave-replication)
-        * [Master-master replication](#master-master-replication)
-        * [Federation](#federation)
-        * [Sharding](#sharding)
-        * [Denormalization](#denormalization)
-        * [SQL tuning](#sql-tuning)
-    * [NoSQL](#nosql)
-        * [Key-value store](#key-value-store)
-        * [Document store](#document-store)
-        * [Wide column store](#wide-column-store)
-        * [Graph Database](#graph-database)
-    * [SQL or NoSQL](#sql-or-nosql)
+  * [Relational database management system (RDBMS)](#relational-database-management-system-rdbms)
+    * [Master-slave replication](#master-slave-replication)
+    * [Master-master replication](#master-master-replication)
+    * [Federation](#federation)
+    * [Sharding](#sharding)
+    * [Denormalization](#denormalization)
+    * [SQL tuning](#sql-tuning)
+  * [NoSQL](#nosql)
+    * [Key-value store](#key-value-store)
+    * [Document store](#document-store)
+    * [Wide column store](#wide-column-store)
+    * [Graph Database](#graph-database)
+  * [SQL or NoSQL](#sql-or-nosql)
 * [Cache](#cache)
-    * [Client caching](#client-caching)
-    * [CDN caching](#cdn-caching)
-    * [Web server caching](#web-server-caching)
-    * [Database caching](#database-caching)
-    * [Application caching](#application-caching)
-    * [Caching at the database query level](#caching-at-the-database-query-level)
-    * [Caching at the object level](#caching-at-the-object-level)
-    * [When to update the cache](#when-to-update-the-cache)
-        * [Cache-aside](#cache-aside)
-        * [Write-through](#write-through)
-        * [Write-behind (write-back)](#write-behind-write-back)
-        * [Refresh-ahead](#refresh-ahead)
+  * [Client caching](#client-caching)
+  * [CDN caching](#cdn-caching)
+  * [Web server caching](#web-server-caching)
+  * [Database caching](#database-caching)
+  * [Application caching](#application-caching)
+  * [Caching at the database query level](#caching-at-the-database-query-level)
+  * [Caching at the object level](#caching-at-the-object-level)
+  * [When to update the cache](#when-to-update-the-cache)
+  * [Disadvantage(s): cache](#disadvantages-cache)
 * [Asynchronism](#asynchronism)
-    * [Message queues](#message-queues)
-    * [Task queues](#task-queues)
-    * [Back pressure](#back-pressure)
+  * [Message queues](#message-queues)
+  * [Task queues](#task-queues)
+  * [Back pressure](#back-pressure)
+  * [Disadvantage(s): asynchronism](#disadvantages-asynchronism)
 * [Communication](#communication)
-    * [Transmission control protocol (TCP)](#transmission-control-protocol-tcp)
-    * [User datagram protocol (UDP)](#user-datagram-protocol-udp)
-    * [Remote procedure call (RPC)](#remote-procedure-call-rpc)
-    * [Representational state transfer (REST)](#representational-state-transfer-rest)
+  * [Hypertext transfer protocol (HTTP)](#hypertext-transfer-protocol-http)
+  * [Transmission control protocol (TCP)](#transmission-control-protocol-tcp)
+  * [User datagram protocol (UDP)](#user-datagram-protocol-udp)
+  * [Remote procedure call (RPC)](#remote-procedure-call-rpc)
+  * [Representational state transfer (REST)](#representational-state-transfer-rest)
+  * [RPC and REST calls comparison](#rpc-and-rest-calls-comparison)
 * [Security](#security)
 * [Appendix](#appendix)
-    * [Powers of two table](#powers-of-two-table)
-    * [Latency numbers every programmer should know](#latency-numbers-every-programmer-should-know)
-    * [Additional system design interview questions](#additional-system-design-interview-questions)
-    * [Real world architectures](#real-world-architectures)
-    * [Company architectures](#company-architectures)
-    * [Company engineering blogs](#company-engineering-blogs)
+  * [Powers of two table](#powers-of-two-table)
+  * [Latency numbers every programmer should know](#latency-numbers-every-programmer-should-know)
+  * [Additional system design interview questions](#additional-system-design-interview-questions)
+  * [Real world architectures](#real-world-architectures)
+  * [Company architectures](#company-architectures)
+  * [Blog kỹ thuật của các công ty](#blog-k%e1%bb%b9-thu%e1%ba%adt-c%e1%bb%a7a-c%c3%a1c-c%c3%b4ng-ty)
 * [Under development](#under-development)
 * [Credits](#credits)
 * [Contact info](#contact-info)
 * [License](#license)
 
-## Study guide
+## Hướng dẫn học tập
 
-> Suggested topics to review based on your interview timeline (short, medium, long).
+> Các chủ đề được cần được cân nhắc dựa trên lộ trình phỏng vấn của bạn (ngắn, vừa, dài).
 
 ![Imgur](http://i.imgur.com/OfVllex.png)
 
-**Q: For interviews, do I need to know everything here?**
+**Q: Để phỏng vấn, tôi có cần phải biết hết mọi thứ ở đây không?**
 
-**A: No, you don't need to know everything here to prepare for the interview**.
+**A: Không, bạn không cần phải biết hết mọi thứ ở đây để chuẩn bị cho phỏng vấn**.
 
-What you are asked in an interview depends on variables such as:
+Những thứ mà bạn sẽ được hỏi khi phỏng vấn dựa vào nhiều tiêu chí, ví dụ như:
 
-* How much experience you have
-* What your technical background is
-* What positions you are interviewing for
-* Which companies you are interviewing with
-* Luck
+* Bạn có bao nhiêu kinh nghiệm
+* Nền tảng kỹ thuật của bạn là gì
+* Bạn phỏng vấn cho vị trí nào
+* Bạn phỏng vấn ở công ty nào
+* May mắn nữa
 
-More experienced candidates are generally expected to know more about system design.  Architects or team leads might be expected to know more than individual contributors.  Top tech companies are likely to have one or more design interview rounds.
+Những ứng viên nhiều kinh nghiệm cơ bản thì thường được mong đợi hiểu biết nhiều về thiết kế hệ thống. Những kiến trúc sư hệ thống hoặc trưởng nhóm có thể được mong đợi biết nhiều hơn những cá nhân khác. Các công ty công nghệ hàng đầu có khả năng có nhiều hơn một vòng phỏng vấn về thiết kế hệ thống.
 
-Start broad and go deeper in a few areas.  It helps to know a little about various key system design topics.  Adjust the following guide based on your timeline, experience, what positions you are interviewing for, and which companies you are interviewing with.
+Bắt đầu theo chiều rộng và đi sâu hơn trong một vài lĩnh vực. Nó giúp bạn biết thêm một chút về các chủ đề thiết kế hệ thống khác nhau. Điều chỉnh hướng dẫn sau dựa vào lộ trình, kinh nghiệm của bạn, vị trí và công ty bạn phỏng vấn.
 
-* **Short timeline** - Aim for **breadth** with system design topics.  Practice by solving **some** interview questions.
-* **Medium timeline** - Aim for **breadth** and **some depth** with system design topics.  Practice by solving **many** interview questions.
-* **Long timeline** - Aim for **breadth** and **more depth** with system design topics.  Practice by solving **most** interview questions.
+* **Lộ trình ngắn** - Mục tiêu là **chiều rộng** về các chủ đề thiết kế hệ thống. Luyện tập bằng cách giải quyết `một vài` câu hỏi phỏng vấn.
+* **Lộ trình vừa** - Mục tiêu là **chiều rộng** và **một ít chiều sâu** về các chủ đề thiết kế hệ thống. Luyện tập bằng cách giải quyết `nhiều` câu hỏi phỏng vấn hơn.
+* **Lộ trình lâu dài** - Mục tiêu là **chiều rộng** và **nhiều chiều sâu hơn** về các chủ đề thiết kế hệ thống. Luyện tập bằng cách giải quyết `hầu hết` câu hỏi phỏng vấn.
 
-| | Short | Medium | Long |
+| | Ngắn | Vừa | Dài |
 |---|---|---|---|
-| Read through the [System design topics](#index-of-system-design-topics) to get a broad understanding of how systems work | :+1: | :+1: | :+1: |
-| Read through a few articles in the [Company engineering blogs](#company-engineering-blogs) for the companies you are interviewing with | :+1: | :+1: | :+1: |
-| Read through a few [Real world architectures](#real-world-architectures) | :+1: | :+1: | :+1: |
-| Review [How to approach a system design interview question](#how-to-approach-a-system-design-interview-question) | :+1: | :+1: | :+1: |
-| Work through [System design interview questions with solutions](#system-design-interview-questions-with-solutions) | Some | Many | Most |
-| Work through [Object-oriented design interview questions with solutions](#object-oriented-design-interview-questions-with-solutions) | Some | Many | Most |
-| Review [Additional system design interview questions](#additional-system-design-interview-questions) | Some | Many | Most |
+| Đọc qua [Danh mục các chủ đề về thiết kế hệ thống](#danh-m%e1%bb%a5c-c%c3%a1c-ch%e1%bb%a7-%c4%91%e1%bb%81-v%e1%bb%81-thi%e1%ba%bft-k%e1%ba%bf-h%e1%bb%87-th%e1%bb%91ng) để hiểu đại khái về những cách hệ thống hoạt động như thế nào | :+1: | :+1: | :+1: |
+| Đọc qua một vài bài viết ở trong [Blog kỹ thuật của các công ty](#blog-k%e1%bb%b9-thu%e1%ba%adt-c%e1%bb%a7a-c%c3%a1c-c%c3%b4ng-ty) về các công ty mà bạn sẽ hướng đến phỏng vấn | :+1: | :+1: | :+1: |
+| Đọc qua một vài [Real world architectures](#real-world-architectures) | :+1: | :+1: | :+1: |
+| Xem lại [Tiếp cận câu hỏi phỏng vấn thiết kế hệ thống như thế nào](#ti%e1%ba%bfp-c%e1%ba%adn-c%c3%a2u-h%e1%bb%8fi-ph%e1%bb%8fng-v%e1%ba%a5n-thi%e1%ba%bft-k%e1%ba%bf-h%e1%bb%87-th%e1%bb%91ng-nh%c6%b0-th%e1%ba%bf-n%c3%a0o) | :+1: | :+1: | :+1: |
+| Làm qua [Câu hỏi phỏng vấn thiết kế hệ thống với đáp án](#c%c3%a2u-h%e1%bb%8fi-ph%e1%bb%8fng-v%e1%ba%a5n-thi%e1%ba%bft-k%e1%ba%bf-h%e1%bb%87-th%e1%bb%91ng-v%e1%bb%9bi-%c4%91%c3%a1p-%c3%a1n) | Một vài | Nhiều | Hầu hết |
+| Làm qua [Câu hỏi phỏng vấn thiết kế đối tượng với đáp án](#c%c3%a2u-h%e1%bb%8fi-ph%e1%bb%8fng-v%e1%ba%a5n-thi%e1%ba%bft-k%e1%ba%bf-%c4%91%e1%bb%91i-t%c6%b0%e1%bb%a3ng-v%e1%bb%9bi-%c4%91%c3%a1p-%c3%a1n) | Một vài | Nhiều | Hầu hết |
+| Xem lại [Additional system design interview questions](#additional-system-design-interview-questions) | Một vài | Nhiều | Hầu hết |
 
-## How to approach a system design interview question
+## Tiếp cận câu hỏi phỏng vấn thiết kế hệ thống như thế nào
 
-> How to tackle a system design interview question.
+> Làm thế nào để giải quyết một câu hỏi phỏng vấn thiết kế hệ thống.
 
-The system design interview is an **open-ended conversation**.  You are expected to lead it.
+Cuộc phỏng vấn thiết kế hệ thống là một **cuộc trò chuyện kết thúc mở**. Bạn được mong đợi sẽ dẫn dắt nó.
 
-You can use the following steps to guide the discussion.  To help solidify this process, work through the [System design interview questions with solutions](#system-design-interview-questions-with-solutions) section using the following steps.
+Bạn có thể sử dụng các bước sau để dẫn đắt cuộc thảo luận. Để giúp củng cố qúa trình này, hãy làm việc thông qua phần [Câu hỏi phỏng vấn thiết kế hệ thống với đáp án](#c%c3%a2u-h%e1%bb%8fi-ph%e1%bb%8fng-v%e1%ba%a5n-thi%e1%ba%bft-k%e1%ba%bf-h%e1%bb%87-th%e1%bb%91ng-v%e1%bb%9bi-%c4%91%c3%a1p-%c3%a1n) bằng cách sử dụng các bước sau:
 
-### Step 1: Outline use cases, constraints, and assumptions
+### Bước 1: Phác thảo các trường hợp sử dụng, các ràng buộc và giả định
 
-Gather requirements and scope the problem.  Ask questions to clarify use cases and constraints.  Discuss assumptions.
+Thu thập những yêu cầu và phạm vi của vấn đề. Hỏi các câu hỏi nhằm làm sáng tỏ các trường hợp sử dụng và ràng buộc. Thảo luận về các giả định.
 
-* Who is going to use it?
-* How are they going to use it?
-* How many users are there?
-* What does the system do?
-* What are the inputs and outputs of the system?
-* How much data do we expect to handle?
-* How many requests per second do we expect?
-* What is the expected read to write ratio?
+* Ai sẽ sử dụng nó?
+* Làm thế nào họ sử dụng nó?
+* Có bao nhiêu người dùng?
+* Hệ thống làm việc gì?
+* Đầu vào và đầu ra của hệ thống là gì?
+* Chúng ta mong đợi sẽ xử lý bao nhiêu dữ liệu?
+* Có bao nhiêu yêu cầu chúng ta nghĩ rằng sẽ xử lý trong một giây?
+* Tỷ lệ đọc và ghi được mong đợi là bao nhiêu?
 
-### Step 2: Create a high level design
+### Bước 2: Tạo thiết kế ở mức tổng quát
 
-Outline a high level design with all important components.
+Phác thảo một thiết kế tổng quát với tất cả các thành phần quan trọng.
 
-* Sketch the main components and connections
-* Justify your ideas
+* Phác thảo các thành phần chính và kết nối
+* Biện minh cho ý tưởng của bạn
 
-### Step 3: Design core components
+### Bước 3: Thiết kế các thành phần cốt lõi
 
-Dive into details for each core component.  For example, if you were asked to [design a url shortening service](solutions/system_design/pastebin/README.md), discuss:
+Đi sâu hơn vào những chi tiết cho từng thành phần cốt lõi. Ví dụ: nếu bạn được yêu cầu [Thiết kế dịch vụ rút ngắn url](solutions/system_design/pastebin/README.md), hãy thảo luận:
 
-* Generating and storing a hash of the full url
-    * [MD5](solutions/system_design/pastebin/README.md) and [Base62](solutions/system_design/pastebin/README.md)
-    * Hash collisions
+* Tạo và lưu trữ một hàm băm của url đầy đủ
+    * [MD5](solutions/system_design/pastebin/README.md) và [Base62](solutions/system_design/pastebin/README.md)
+    * Sự xung đột khi băm
     * SQL or NoSQL
-    * Database schema
-* Translating a hashed url to the full url
-    * Database lookup
-* API and object-oriented design
+    * Schema của cơ sở dữ liệu
+* Dịch một url được băm thành một url đầy đủ
+    * Tra cứu vào cơ sở dữ liệu
+* API và thiết kế hướng đối tượng
 
-### Step 4: Scale the design
+### Step 4: Mở rộng thiết kế
 
-Identify and address bottlenecks, given the constraints.  For example, do you need the following to address scalability issues?
+Xác định và giải quyết các tắc nghẽn, đưa ra các ràng buộc. Ví dụ, bạn có cần những điều sau đây để giải quyết các vấn đề về khả năng mở rộng không?
 
-* Load balancer
-* Horizontal scaling
-* Caching
-* Database sharding
+* Cân bằng tải
+* Mở rộng hệ thống theo chiều ngang
+* Bộ nhớ đệm
+* Sharding Cơ sở dữ liệu
 
-Discuss potential solutions and trade-offs.  Everything is a trade-off.  Address bottlenecks using [principles of scalable system design](#index-of-system-design-topics).
+Thảo luận về các giải pháp tiềm năng và sự đánh đổi. Mọi thứ đều là sự đánh đổi. Giải quyết việc tắc nghẽn của hệ thống bằng cách sử dụng [Danh mục các chủ đề về thiết kế hệ thống](#danh-m%e1%bb%a5c-c%c3%a1c-ch%e1%bb%a7-%c4%91%e1%bb%81-v%e1%bb%81-thi%e1%ba%bft-k%e1%ba%bf-h%e1%bb%87-th%e1%bb%91ng).
 
 ### Back-of-the-envelope calculations
 
-You might be asked to do some estimates by hand.  Refer to the [Appendix](#appendix) for the following resources:
+Bạn có thể được yêu cầu làm một số ước tính bằng tay. Tham khảo [Phụ lục](#appendix) cho các tài nguyên sau:
 
 * [Use back of the envelope calculations](http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
-* [Powers of two table](#powers-of-two-table)
-* [Latency numbers every programmer should know](#latency-numbers-every-programmer-should-know)
+* [Bảng về lũy thừa 2](#powers-of-two-table)
+* [Những con số về Độ trễ mỗi lập trình viên nên biết](#latency-numbers-every-programmer-should-know)
 
-### Source(s) and further reading
+### Một số nguồn để đọc thêm
 
-Check out the following links to get a better idea of what to expect:
+Kiểm tra các liên kết sau để có cái nhìn tốt hơn về những gì bạn mong đợi:
 
-* [How to ace a systems design interview](https://www.palantir.com/2011/10/how-to-rock-a-systems-design-interview/)
-* [The system design interview](http://www.hiredintech.com/system-design)
-* [Intro to Architecture and Systems Design Interviews](https://www.youtube.com/watch?v=ZgdS0EUmn70)
+* [Làm thế nào để xuất sắc trong một cuộc phỏng vấn thiết kế hệ thống](https://www.palantir.com/2011/10/how-to-rock-a-systems-design-interview/)
+* [Cuộc phỏng vấn thiết kế hệ thống](http://www.hiredintech.com/system-design)
+* [Giới thiệu về phỏng vấn Thiết kế kiến ​​trúc và hệ thống](https://www.youtube.com/watch?v=ZgdS0EUmn70)
 
-## System design interview questions with solutions
+## Câu hỏi phỏng vấn thiết kế hệ thống với đáp án
 
-> Common system design interview questions with sample discussions, code, and diagrams.
+> Các câu hỏi phỏng vấn thiết kế hệ thống phổ biến với thảo luận mẫu, mã và sơ đồ thiết kế.
 >
-> Solutions linked to content in the `solutions/` folder.
+> Các đáp án được lưu trữ trong thư mục `solutions/`.
 
-| Question | |
+| Câu hỏi | |
 |---|---|
-| Design Pastebin.com (or Bit.ly) | [Solution](solutions/system_design/pastebin/README.md) |
-| Design the Twitter timeline and search (or Facebook feed and search) | [Solution](solutions/system_design/twitter/README.md) |
-| Design a web crawler | [Solution](solutions/system_design/web_crawler/README.md) |
-| Design Mint.com | [Solution](solutions/system_design/mint/README.md) |
-| Design the data structures for a social network | [Solution](solutions/system_design/social_graph/README.md) |
-| Design a key-value store for a search engine | [Solution](solutions/system_design/query_cache/README.md) |
-| Design Amazon's sales ranking by category feature | [Solution](solutions/system_design/sales_rank/README.md) |
-| Design a system that scales to millions of users on AWS | [Solution](solutions/system_design/scaling_aws/README.md) |
-| Add a system design question | [Contribute](#contributing) |
+| Thiết kế Pastebin.com (hoặc Bit.ly) | [Đáp án](solutions/system_design/pastebin/README.md) |
+| Design the Twitter timeline and search (or Facebook feed and search) | [Đáp án](solutions/system_design/twitter/README.md) |
+| Thiết kế ứng dựng cào nội dung web | [Đáp án](solutions/system_design/web_crawler/README.md) |
+| Thiết kế Mint.com | [Đáp án](solutions/system_design/mint/README.md) |
+| Thiết kế cấu trúc dữ liệu cho một mạng xã hội | [Đáp án](solutions/system_design/social_graph/README.md) |
+| Thiết kế một bộ lưu trữ key-value cho bộ máy tìm kiếm | [Đáp án](solutions/system_design/query_cache/README.md) |
+| Design Amazon's sales ranking by category feature | [Đáp án](solutions/system_design/sales_rank/README.md) |
+| Thiết kế một hệ thống có quy mô tới hàng triệu người dùng trên AWS | [Đáp án](solutions/system_design/scaling_aws/README.md) |
+| Thêm một câu hỏi mới | [Đóng góp](#%c4%90%c3%b3ng-g%c3%b3p) |
 
-### Design Pastebin.com (or Bit.ly)
+### Thiết kế Pastebin.com (hoặc Bit.ly)
 
-[View exercise and solution](solutions/system_design/pastebin/README.md)
+[Xem bài tập và đáp án](solutions/system_design/pastebin/README.md)
 
 ![Imgur](http://i.imgur.com/4edXG0T.png)
 
 ### Design the Twitter timeline and search (or Facebook feed and search)
 
-[View exercise and solution](solutions/system_design/twitter/README.md)
+[Xem bài tập và đáp án](solutions/system_design/twitter/README.md)
 
 ![Imgur](http://i.imgur.com/jrUBAF7.png)
 
-### Design a web crawler
+### Thiết kế ứng dựng cào nội dung web
 
-[View exercise and solution](solutions/system_design/web_crawler/README.md)
+[Xem bài tập và đáp án](solutions/system_design/web_crawler/README.md)
 
 ![Imgur](http://i.imgur.com/bWxPtQA.png)
 
-### Design Mint.com
+### Thiết kế Mint.com
 
-[View exercise and solution](solutions/system_design/mint/README.md)
+[Xem bài tập và đáp án](solutions/system_design/mint/README.md)
 
 ![Imgur](http://i.imgur.com/V5q57vU.png)
 
-### Design the data structures for a social network
+### Thiết kế cấu trúc dữ liệu cho một mạng xã hội
 
-[View exercise and solution](solutions/system_design/social_graph/README.md)
+[Xem bài tập và đáp án](solutions/system_design/social_graph/README.md)
 
 ![Imgur](http://i.imgur.com/cdCv5g7.png)
 
-### Design a key-value store for a search engine
+### Thiết kế một bộ lưu trữ key-value cho bộ máy tìm kiếm
 
-[View exercise and solution](solutions/system_design/query_cache/README.md)
+[Xem bài tập và đáp án](solutions/system_design/query_cache/README.md)
 
 ![Imgur](http://i.imgur.com/4j99mhe.png)
 
 ### Design Amazon's sales ranking by category feature
 
-[View exercise and solution](solutions/system_design/sales_rank/README.md)
+[Xem bài tập và đáp án](solutions/system_design/sales_rank/README.md)
 
 ![Imgur](http://i.imgur.com/MzExP06.png)
 
-### Design a system that scales to millions of users on AWS
+### Thiết kế một hệ thống có quy mô tới hàng triệu người dùng trên AWS
 
-[View exercise and solution](solutions/system_design/scaling_aws/README.md)
+[Xem bài tập và đáp án](solutions/system_design/scaling_aws/README.md)
 
 ![Imgur](http://i.imgur.com/jj3A5N8.png)
 
-## Object-oriented design interview questions with solutions
+## Câu hỏi phỏng vấn thiết kế đối tượng với đáp án
 
 > Common object-oriented design interview questions with sample discussions, code, and diagrams.
 >
@@ -366,75 +374,75 @@ Check out the following links to get a better idea of what to expect:
 | Design a circular array | [Contribute](#contributing)  |
 | Add an object-oriented design question | [Contribute](#contributing) |
 
-## System design topics: start here
+## Chủ đề thiết kế hệ thống: bắt đầu từ đây
 
-New to system design?
+Mới tìm hiểu về thiết kế hệ thống?
 
-First, you'll need a basic understanding of common principles, learning about what they are, how they are used, and their pros and cons.
+Trước tiên, bạn sẽ cần một sự hiểu biết cơ bản về các nguyên tắc chung, tìm hiểu về chúng là gì, cách chúng được sử dụng và ưu nhược điểm của chúng.
 
-### Step 1: Review the scalability video lecture
+### Bước 1: Xem lại bài giảng video về khả năng mở rộng hệ thống
 
-[Scalability Lecture at Harvard](https://www.youtube.com/watch?v=-W9F__D3oY4)
+[Bài giảng mở rộng hệ thống của trường Harvard](https://www.youtube.com/watch?v=-W9F__D3oY4)
 
-* Topics covered:
-    * Vertical scaling
-    * Horizontal scaling
-    * Caching
-    * Load balancing
-    * Database replication
-    * Database partitioning
+* Các chủ đề được đề cập:
+    * Mở rộng theo chiều dọc
+    * Mở rộng theo chiều ngang
+    * Bộ nhớ đệm
+    * Cân bằng tải
+    * Nhân rộng cơ sở dữ liệu
+    * Phân vùng cơ sở dữ liệu
 
-### Step 2: Review the scalability article
+### Bước 2: Xem lại bài viết về khả năng mở rộng hệ thống
 
-[Scalability](http://www.lecloud.net/tagged/scalability/chrono)
+[Mở rộng hệ thống](http://www.lecloud.net/tagged/scalability/chrono)
 
-* Topics covered:
-    * [Clones](http://www.lecloud.net/post/7295452622/scalability-for-dummies-part-1-clones)
-    * [Databases](http://www.lecloud.net/post/7994751381/scalability-for-dummies-part-2-database)
-    * [Caches](http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache)
-    * [Asynchronism](http://www.lecloud.net/post/9699762917/scalability-for-dummies-part-4-asynchronism)
+* Các chủ đề được đề cập:
+    * [Tạo bản sao](http://www.lecloud.net/post/7295452622/scalability-for-dummies-part-1-clones)
+    * [Cơ sở dữ liệu](http://www.lecloud.net/post/7994751381/scalability-for-dummies-part-2-database)
+    * [Bộ nhớ đệm](http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache)
+    * [Bất đồng bộ](http://www.lecloud.net/post/9699762917/scalability-for-dummies-part-4-asynchronism)
 
-### Next steps
+### Những bước tiếp theo
 
-Next, we'll look at high-level trade-offs:
+Tiếp theo, chúng ta sẽ xem xét sự đánh đổi ở mức tổng quát:
 
-* **Performance** vs **scalability**
-* **Latency** vs **throughput**
-* **Availability** vs **consistency**
+* **Hiệu suất** so với **khả năng mở rộng**
+* **Độ trễ** so với **công suất**
+* **Tính sẵn sàng** so với **Tính nhất quán**
 
-Keep in mind that **everything is a trade-off**.
+Nhớ rằng mọi thứ đều là **sự đánh đổi**.
 
-Then we'll dive into more specific topics such as DNS, CDNs, and load balancers.
+Sau đó, chúng ta sẽ tìm hiểu sâu hơn về các chủ đề cụ thể hơn như DNS, CDN và cân bằng tải.
 
-## Performance vs scalability
+## Hiệu suất so với khả năng mở rộng
 
-A service is **scalable** if it results in increased **performance** in a manner proportional to resources added. Generally, increasing performance means serving more units of work, but it can also be to handle larger units of work, such as when datasets grow.<sup><a href=http://www.allthingsdistributed.com/2006/03/a_word_on_scalability.html>1</a></sup>
+Một dịch vụ **có thể mở rộng** nếu nó dẫn đến **hiệu suất** tăng theo tỷ lệ thuận với tài nguyên được thêm vào. Nói chung, tăng hiệu suất có nghĩa là phục vụ nhiều đơn vị công việc hơn, nhưng cũng có thể là để xử lý các đơn vị công việc lớn hơn, chẳng hạn như khi bộ dữ liệu tăng lên.<sup><a href=http://www.allthingsdistributed.com/2006/03/a_word_on_scalability.html>1</a></sup>
 
-Another way to look at performance vs scalability:
+Một cách khác để xem xét hiệu suất so với khả năng mở rộng:
 
-* If you have a **performance** problem, your system is slow for a single user.
-* If you have a **scalability** problem, your system is fast for a single user but slow under heavy load.
+* Nếu bạn có một vấn đề về **hiệu suất**, hệ thống của bạn chậm khi phục vụ một người dùng.
+* Nếu bạn có một vấn đề về **sự mở rộng**, hệ thống của bạn nhanh khi phục vụ một người dùng nhưng chậm khi tải nặng hơn.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [A word on scalability](http://www.allthingsdistributed.com/2006/03/a_word_on_scalability.html)
 * [Scalability, availability, stability, patterns](http://www.slideshare.net/jboner/scalability-availability-stability-patterns/)
 
-## Latency vs throughput
+## Độ trễ so với công suất
 
-**Latency** is the time to perform some action or to produce some result.
+**Độ trễ** là thời gian đề thực hiện một tác vụ nào đó hoặc cung cấp kết quả.
 
-**Throughput** is the number of such actions or results per unit of time.
+**Công suất** là số lượng hành động hoặc kết quả trên mỗi đơn vị thời gian.
 
-Generally, you should aim for **maximal throughput** with **acceptable latency**.
+Nói chung, bạn nên nhắm đến công suất tối đa với độ trễ chấp nhận được.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
-* [Understanding latency vs throughput](https://community.cadence.com/cadence_blogs_8/b/sd/archive/2010/09/13/understanding-latency-vs-throughput)
+* [Hiểu về Độ trễ so với công suất](https://community.cadence.com/cadence_blogs_8/b/sd/archive/2010/09/13/understanding-latency-vs-throughput)
 
-## Availability vs consistency
+## Tính sẵn sàng và tính nhất quán
 
-### CAP theorem
+### Định lý CAP
 
 <p align="center">
   <img src="http://i.imgur.com/bgLMI2u.png"/>
@@ -442,61 +450,61 @@ Generally, you should aim for **maximal throughput** with **acceptable latency**
   <i><a href=http://robertgreiner.com/2014/08/cap-theorem-revisited>Source: CAP theorem revisited</a></i>
 </p>
 
-In a distributed computer system, you can only support two of the following guarantees:
+Trong một hệ thống tính toán phân tán, bạn chỉ có thể hỗ trợ hai trong các sự đảm bảo sau đây:
 
-* **Consistency** - Every read receives the most recent write or an error
-* **Availability** - Every request receives a response, without guarantee that it contains the most recent version of the information
-* **Partition Tolerance** - The system continues to operate despite arbitrary partitioning due to network failures
+* **Tính nhất quán** - Mỗi lần đọc dữ liệu, sẽ nhận được nội dung mới nhất hoặc lỗi
+* **Tính sẵn sàng** - Mỗi yêu cầu nhận được phản hồi (không phải lỗi) - không đảm bảo rằng nó chứa các ghi chép mới nhất
+* **Dung sai phân vùng** - Hệ thống tiếp tục hoạt động bất chấp một số lượng tùy ý các tin nhắn đang bị rớt (hoặc trì hoãn) bởi mạng
 
-*Networks aren't reliable, so you'll need to support partition tolerance.  You'll need to make a software tradeoff between consistency and availability.*
+*Kết nối mạng thì không đáng tin cậy, vì vậy bạn sẽ cần hỗ trợ dung sai phân vùng. Bạn sẽ cần phải đánh đổi giữa tính nhất quán và tính sẵn có.*
 
-#### CP - consistency and partition tolerance
+#### CP - Tính nhất quán và dung sai phân vùng
 
-Waiting for a response from the partitioned node might result in a timeout error.  CP is a good choice if your business needs require atomic reads and writes.
+Chờ phản hồi từ nút được phân vùng có thể dẫn đến lỗi hết thời gian. CP là một lựa chọn tốt nếu nhu cầu kinh doanh của bạn yêu cầu đọc và viết nguyên tử.
 
-#### AP - availability and partition tolerance
+#### AP - Tính sẵn sàng và dung sai phân vùng
 
-Responses return the most recent version of the data available on a node, which might not be the latest.  Writes might take some time to propagate when the partition is resolved.
+Phản hồi trả về phiên bản mới nhất của dữ liệu có sẵn trên một nút, có thể không phải là phiên bản mới nhất. Các thao tác đọc có thể mất một thời gian để truyền đi khi phân vùng được giải quyết.
 
-AP is a good choice if the business needs allow for [eventual consistency](#eventual-consistency) or when the system needs to continue working despite external errors.
+AP là một lựa chọn tốt nếu nhu cầu kinh doanh cho phép [tính nhất quán cuối cùng](#t%c3%adnh-nh%e1%ba%a5t-qu%c3%a1n-cu%e1%bb%91i-c%c3%b9ng) hoặc khi hệ thống cần tiếp tục hoạt động mặc dù có lỗi bên ngoài.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [CAP theorem revisited](http://robertgreiner.com/2014/08/cap-theorem-revisited/)
 * [A plain english introduction to CAP theorem](http://ksat.me/a-plain-english-introduction-to-cap-theorem/)
 * [CAP FAQ](https://github.com/henryr/cap-faq)
 
-## Consistency patterns
+## Các mô hình về tính nhất quán
 
-With multiple copies of the same data, we are faced with options on how to synchronize them so clients have a consistent view of the data.  Recall the definition of consistency from the [CAP theorem](#cap-theorem) - Every read receives the most recent write or an error.
+Với nhiều bản sao của cùng một dữ liệu, chúng ta phải đối mặt với các tùy chọn làm thế nào để đồng bộ hóa chúng sao cho trình khách có một cái nhìn nhất quán về dữ liệu. Hồi tưởng lại định nghĩa về tính nhất quán từ [Định lý CAP](#%c4%90%e1%bb%8bnh-l%c3%bd-cap) - Mỗi lần đọc đều nhận được bản ghi gần đây nhất hoặc là một lỗi .
 
-### Weak consistency
+### Tính nhất quán yếu
 
-After a write, reads may or may not see it.  A best effort approach is taken.
+Sau một lần ghi, các lần đọc có thể hoặc không thể nhìn thấy được nó. Một cách tiếp cận tốt nhất sẽ được thực hiện.
 
-This approach is seen in systems such as memcached.  Weak consistency works well in real time use cases such as VoIP, video chat, and realtime multiplayer games.  For example, if you are on a phone call and lose reception for a few seconds, when you regain connection you do not hear what was spoken during connection loss.
+Cách tiếp cận này có thể thấy trong các hệ thống như memcached. Tính nhất quán yếu hoạt động tốt trong các ứng dụng thời gian thực như VoIP, video chat, và những trò chơi đa người dùng thời gian thực. Ví dụ, nếu bạn đang thực hiện cuộc gọi, và mất liên lạc trong một vài giây, khi bạn được kết nối lại bạn sẽ không nghe được những gì được nói trong khi kết nối bị mất.
 
-### Eventual consistency
+### Tính nhất quán cuối cùng
 
-After a write, reads will eventually see it (typically within milliseconds).  Data is replicated asynchronously.
+Sau một lần ghi, các lần đọc cuối cùng sẽ thấy được nó (thông thường trong vòng vài mili giây). Dữ liệu được sao chép một cách bất đồng độ
 
-This approach is seen in systems such as DNS and email.  Eventual consistency works well in highly available systems.
+Cách tiếp cận này có thể thấy trong các hệ thống như DNS và email. Tính nhất quán cuối cùng hoạt động tốt trong các hệ thống có tính sẵn sàng cao
 
-### Strong consistency
+### Tính nhất quán mạnh
 
-After a write, reads will see it.  Data is replicated synchronously.
+Sau một lần ghi, các lần đọc sẽ thấy nó. Dữ liệu được sao chép một cách đồng độ
 
-This approach is seen in file systems and RDBMSes.  Strong consistency works well in systems that need transactions.
+Cách tiếp cận này có thể thấy trong trong các hệ thống tập tin và các hệ quản trị dữ liệu quan hệ. Tính nhất quán mạnh hoạt động tốt trong các hệ thống cần các giao dịnh.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
-* [Transactions across data centers](http://snarfed.org/transactions_across_datacenters_io.html)
+* [Giao dịch giữa các trung tâm dữ liệu](http://snarfed.org/transactions_across_datacenters_io.html)
 
-## Availability patterns
+## Các mô hình về tính sẵn sàng
 
-There are two main patterns to support high availability: **fail-over** and **replication**.
+Có hai mẫu chính để hỗ trợ tính sẵn sàng cao: **Mô hình chịu lỗi** và **sao chép**.
 
-### Fail-over
+### Mô hình chịu lỗi
 
 #### Active-passive
 
@@ -514,12 +522,12 @@ If the servers are public-facing, the DNS would need to know about the public IP
 
 Active-active failover can also be referred to as master-master failover.
 
-### Disadvantage(s): failover
+### Bất lợi của mô hình chịu lỗi
 
-* Fail-over adds more hardware and additional complexity.
+* Mô hình chịu lỗi thêm nhiều phần cứng và vì thế tăng thêm độ phức tạp.
 * There is a potential for loss of data if the active system fails before any newly written data can be replicated to the passive.
 
-### Replication
+### Sao chép
 
 #### Master-slave and master-master
 
@@ -606,7 +614,7 @@ Services such as [CloudFlare](https://www.cloudflare.com/dns/) and [Route 53](ht
 * DNS server management could be complex and is generally managed by [governments, ISPs, and large companies](http://superuser.com/questions/472695/who-controls-the-dns-servers/472729).
 * DNS services have recently come under [DDoS attack](http://dyn.com/blog/dyn-analysis-summary-of-friday-october-21-attack/), preventing users from accessing websites such as Twitter without knowing Twitter's IP address(es).
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [DNS architecture](https://technet.microsoft.com/en-us/library/dd197427(v=ws.10).aspx)
 * [Wikipedia](https://en.wikipedia.org/wiki/Domain_Name_System)
@@ -647,7 +655,7 @@ Sites with heavy traffic work well with pull CDNs, as traffic is spread out more
 * Content might be stale if it is updated before the TTL expires it.
 * CDNs require changing URLs for static content to point to the CDN.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [Globally distributed content delivery](https://figshare.com/articles/Globally_distributed_content_delivery/6605972)
 * [The differences between push and pull CDNs](http://www.travelblogadvice.com/technical/the-differences-between-push-and-pull-cdns/)
@@ -713,7 +721,7 @@ Load balancers can also help with horizontal scaling, improving performance and 
 * Introducing a load balancer to help eliminate single points of failure results in increased complexity.
 * A single load balancer is a single point of failure, configuring multiple load balancers further increases complexity.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [NGINX architecture](https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/)
 * [HAProxy architecture guide](http://www.haproxy.org/download/1.2/doc/architecture.txt)
@@ -759,7 +767,7 @@ Additional benefits include:
 * Introducing a reverse proxy results in increased complexity.
 * A single reverse proxy is a single point of failure, configuring multiple reverse proxies (ie a [failover](https://en.wikipedia.org/wiki/Failover)) further increases complexity.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [Reverse proxy vs load balancer](https://www.nginx.com/resources/glossary/reverse-proxy-vs-load-balancer/)
 * [NGINX architecture](https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/)
@@ -793,7 +801,7 @@ Systems such as [Consul](https://www.consul.io/docs/index.html), [Etcd](https://
 * Adding an application layer with loosely coupled services requires a different approach from an architectural, operations, and process viewpoint (vs a monolithic system).
 * Microservices can add complexity in terms of deployments and operations.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [Intro to architecting systems for scale](http://lethain.com/introduction-to-architecting-systems-for-scale)
 * [Crack the system design interview](http://www.puncsky.com/blog/2016-02-13-crack-the-system-design-interview)
@@ -862,7 +870,7 @@ Both masters serve reads and writes and coordinate with each other on writes.  I
 * On some systems, writing to the master can spawn multiple threads to write in parallel, whereas read replicas only support writing sequentially with a single thread.
 * Replication adds more hardware and additional complexity.
 
-##### Source(s) and further reading: replication
+##### Nguồn và đọc thêm: replication
 
 * [Scalability, availability, stability, patterns](http://www.slideshare.net/jboner/scalability-availability-stability-patterns/)
 * [Multi-master replication](https://en.wikipedia.org/wiki/Multi-master_replication)
@@ -884,7 +892,7 @@ Federation (or functional partitioning) splits up databases by function.  For ex
 * Joining data from two databases is more complex with a [server link](http://stackoverflow.com/questions/5145637/querying-data-by-joining-two-tables-in-two-database-on-different-servers).
 * Federation adds more hardware and additional complexity.
 
-##### Source(s) and further reading: federation
+##### Nguồn và đọc thêm: federation
 
 * [Scaling up to your first 10 million users](https://www.youtube.com/watch?v=w95murBkYmU)
 
@@ -910,7 +918,7 @@ Common ways to shard a table of users is either through the user's last name ini
 * Joining data from multiple shards is more complex.
 * Sharding adds more hardware and additional complexity.
 
-##### Source(s) and further reading: sharding
+##### Nguồn và đọc thêm: sharding
 
 * [The coming of the shard](http://highscalability.com/blog/2009/8/6/an-unorthodox-approach-to-database-design-the-coming-of-the.html)
 * [Shard database architecture](https://en.wikipedia.org/wiki/Shard_(database_architecture))
@@ -930,7 +938,7 @@ In most systems, reads can heavily outnumber writes 100:1 or even 1000:1.  A rea
 * Constraints can help redundant copies of information stay in sync, which increases complexity of the database design.
 * A denormalized database under heavy write load might perform worse than its normalized counterpart.
 
-###### Source(s) and further reading: denormalization
+###### Nguồn và đọc thêm: denormalization
 
 * [Denormalization](https://en.wikipedia.org/wiki/Denormalization)
 
@@ -977,7 +985,7 @@ Benchmarking and profiling might point you to the following optimizations.
 
 * In some cases, the [query cache](https://dev.mysql.com/doc/refman/5.7/en/query-cache.html) could lead to [performance issues](https://www.percona.com/blog/2016/10/12/mysql-5-7-performance-tuning-immediately-after-installation/).
 
-##### Source(s) and further reading: SQL tuning
+##### Nguồn và đọc thêm: SQL tuning
 
 * [Tips for optimizing MySQL queries](http://aiddroid.com/10-tips-optimizing-mysql-queries-dont-suck/)
 * [Is there a good reason i see VARCHAR(255) used so often?](http://stackoverflow.com/questions/1217466/is-there-a-good-reason-i-see-varchar255-used-so-often-as-opposed-to-another-l)
@@ -1006,7 +1014,7 @@ Key-value stores provide high performance and are often used for simple data mod
 
 A key-value store is the basis for more complex systems such as a document store, and in some cases, a graph database.
 
-##### Source(s) and further reading: key-value store
+##### Nguồn và đọc thêm: key-value store
 
 * [Key-value database](https://en.wikipedia.org/wiki/Key-value_database)
 * [Disadvantages of key-value stores](http://stackoverflow.com/questions/4056093/what-are-the-disadvantages-of-using-a-key-value-table-over-nullable-columns-or)
@@ -1025,7 +1033,7 @@ Some document stores like [MongoDB](https://www.mongodb.com/mongodb-architecture
 
 Document stores provide high flexibility and are often used for working with occasionally changing data.
 
-##### Source(s) and further reading: document store
+##### Nguồn và đọc thêm: document store
 
 * [Document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database)
 * [MongoDB architecture](https://www.mongodb.com/mongodb-architecture)
@@ -1048,7 +1056,7 @@ Google introduced [Bigtable](http://www.read.seas.harvard.edu/~kohler/class/cs23
 
 Wide column stores offer high availability and high scalability.  They are often used for very large data sets.
 
-##### Source(s) and further reading: wide column store
+##### Nguồn và đọc thêm: wide column store
 
 * [SQL & NoSQL, a brief history](http://blog.grio.com/2015/11/sql-nosql-a-brief-history.html)
 * [Bigtable architecture](http://www.read.seas.harvard.edu/~kohler/class/cs239-w08/chang06bigtable.pdf)
@@ -1069,13 +1077,13 @@ In a graph database, each node is a record and each arc is a relationship betwee
 
 Graphs databases offer high performance for data models with complex relationships, such as a social network.  They are relatively new and are not yet widely-used; it might be more difficult to find development tools and resources.  Many graphs can only be accessed with [REST APIs](#representational-state-transfer-rest).
 
-##### Source(s) and further reading: graph
+##### Nguồn và đọc thêm: graph
 
 * [Graph database](https://en.wikipedia.org/wiki/Graph_database)
 * [Neo4j](https://neo4j.com/)
 * [FlockDB](https://blog.twitter.com/2010/introducing-flockdb)
 
-#### Source(s) and further reading: NoSQL
+#### Nguồn và đọc thêm: NoSQL
 
 * [Explanation of base terminology](http://stackoverflow.com/questions/3342497/explanation-of-base-terminology)
 * [NoSQL databases a survey and decision guidance](https://medium.com/baqend-blog/nosql-databases-a-survey-and-decision-guidance-ea7823a822d#.wskogqenq)
@@ -1120,7 +1128,7 @@ Sample data well-suited for NoSQL:
 * Frequently accessed ('hot') tables
 * Metadata/lookup tables
 
-##### Source(s) and further reading: SQL or NoSQL
+##### Nguồn và đọc thêm: SQL or NoSQL
 
 * [Scaling up to your first 10 million users](https://www.youtube.com/watch?v=w95murBkYmU)
 * [SQL vs NoSQL differences](https://www.sitepoint.com/sql-vs-nosql-differences/)
@@ -1307,7 +1315,7 @@ Refresh-ahead can result in reduced latency vs read-through if the cache can acc
 * Cache invalidation is a difficult problem, there is additional complexity associated with when to update the cache.
 * Need to make application changes such as adding Redis or memcached.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [From cache to in-memory data grid](http://www.slideshare.net/tmatyashovsky/from-cache-to-in-memory-data-grid-introduction-to-hazelcast)
 * [Scalable system design patterns](http://horicky.blogspot.com/2010/10/scalable-system-design-patterns.html)
@@ -1356,7 +1364,7 @@ If queues start to grow significantly, the queue size can become larger than mem
 
 * Use cases such as inexpensive calculations and realtime workflows might be better suited for synchronous operations, as introducing queues can add delays and complexity.
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [It's all a numbers game](https://www.youtube.com/watch?v=1KRYH75wgy4)
 * [Applying back pressure when overloaded](http://mechanical-sympathy.blogspot.com/2012/05/apply-back-pressure-when-overloaded.html)
@@ -1389,7 +1397,7 @@ A basic HTTP request consists of a verb (method) and a resource (endpoint).  Bel
 
 HTTP is an application layer protocol relying on lower-level protocols such as **TCP** and **UDP**.
 
-#### Source(s) and further reading: HTTP
+#### Nguồn và đọc thêm: HTTP
 
 * [What is HTTP?](https://www.nginx.com/resources/glossary/http/)
 * [Difference between HTTP and TCP](https://www.quora.com/What-is-the-difference-between-HTTP-protocol-and-TCP-protocol)
@@ -1439,7 +1447,7 @@ Use UDP over TCP when:
 * Late data is worse than loss of data
 * You want to implement your own error correction
 
-#### Source(s) and further reading: TCP and UDP
+#### Nguồn và đọc thêm: TCP and UDP
 
 * [Networking for game programming](http://gafferongames.com/networking-for-game-programmers/udp-vs-tcp/)
 * [Key differences between TCP and UDP protocols](http://www.cyberciti.biz/faq/key-differences-between-tcp-and-udp-protocols/)
@@ -1542,7 +1550,7 @@ REST is focused on exposing data.  It minimizes the coupling between client/serv
   <i><a href=https://apihandyman.io/do-you-really-know-why-you-prefer-rest-over-rpc/>Source: Do you really know why you prefer REST over RPC</a></i>
 </p>
 
-#### Source(s) and further reading: REST and RPC
+#### Nguồn và đọc thêm: REST and RPC
 
 * [Do you really know why you prefer REST over RPC](https://apihandyman.io/do-you-really-know-why-you-prefer-rest-over-rpc/)
 * [When are RPC-ish approaches more appropriate than REST?](http://programmers.stackexchange.com/a/181186)
@@ -1564,7 +1572,7 @@ Security is a broad topic.  Unless you have considerable experience, a security 
 * Use parameterized queries to prevent SQL injection.
 * Use the principle of [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-### Source(s) and further reading
+### Nguồn và đọc thêm
 
 * [Security guide for developers](https://github.com/FallibleInc/security-guide-for-developers)
 * [OWASP top ten](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet)
@@ -1588,7 +1596,7 @@ Power           Exact Value         Approx Value        Bytes
 40              1,099,511,627,776   1 trillion           1 TB
 ```
 
-#### Source(s) and further reading
+#### Nguồn và đọc thêm
 
 * [Powers of two](https://en.wikipedia.org/wiki/Power_of_two)
 
@@ -1633,7 +1641,7 @@ Handy metrics based on numbers above:
 
 ![](https://camo.githubusercontent.com/77f72259e1eb58596b564d1ad823af1853bc60a3/687474703a2f2f692e696d6775722e636f6d2f6b307431652e706e67)
 
-#### Source(s) and further reading
+#### Nguồn và đọc thêm
 
 * [Latency numbers every programmer should know - 1](https://gist.github.com/jboner/2841832)
 * [Latency numbers every programmer should know - 2](https://gist.github.com/hellerbarde/2843375)
@@ -1738,7 +1746,7 @@ Handy metrics based on numbers above:
 | WhatsApp | [The WhatsApp architecture Facebook bought for $19 billion](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html) |
 | YouTube | [YouTube scalability](https://www.youtube.com/watch?v=w5WVu624fY8)<br/>[YouTube architecture](http://highscalability.com/youtube-architecture) |
 
-### Company engineering blogs
+### Blog kỹ thuật của các công ty
 
 > Architectures for companies you are interviewing with.
 >
@@ -1785,7 +1793,7 @@ Handy metrics based on numbers above:
 * [Yelp Engineering Blog](http://engineeringblog.yelp.com/)
 * [Zynga Engineering Blog](https://www.zynga.com/blogs/engineering)
 
-#### Source(s) and further reading
+#### Nguồn và đọc thêm
 
 Looking to add a blog?  To avoid duplicating work, consider adding your company blog to the following repo:
 
